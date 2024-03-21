@@ -1,10 +1,9 @@
-import path from "node:path";
-
 import Config from "./utils/config";
 import { app } from "electron";
 import { defaultsDeep } from "lodash-es";
 import log from "../utils/log";
 import { setFfmpegPath } from "./video";
+import { FFMPEG_PATH, FFPROBE_PATH } from "./appConstant";
 
 import type { AppConfig } from "../types";
 import type { IpcMainInvokeEvent } from "electron";
@@ -38,22 +37,8 @@ export const APP_DEFAULT_CONFIG: AppConfig = {
     convert2Mp4: false,
     useVideoAsTitle: false,
   },
-  ffmpegPath: path.join(
-    path.dirname(app.getPath("exe")),
-    "resources",
-    "app.asar.unpacked",
-    "resources",
-    "bin",
-    "ffmpeg.exe",
-  ),
-  ffprobePath: path.join(
-    path.dirname(app.getPath("exe")),
-    "resources",
-    "app.asar.unpacked",
-    "resources",
-    "bin",
-    "ffprobe.exe",
-  ),
+  ffmpegPath: FFMPEG_PATH,
+  ffprobePath: FFPROBE_PATH,
   biliUser: {},
   tool: {
     home: {

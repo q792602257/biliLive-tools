@@ -3,13 +3,14 @@ import fs from "fs-extra";
 import os from "node:os";
 import { XMLParser } from "fast-xml-parser";
 
-import { pathExists, trashItem, __dirname, uuid } from "./utils/index";
+import { pathExists, trashItem, uuid } from "./utils/index";
 import log from "./utils/log";
 import CommonPreset from "./utils/preset";
 import { Danmu, report, generateDanmakuImage } from "../core/danmu";
 import { DANMU_PRESET_PATH } from "./appConstant";
 import { DanmuTask, taskQueue } from "./task";
 import { convertImage2Video } from "./video";
+import { DANMUKUFACTORY_PATH } from "./appConstant";
 
 import type {
   DanmuConfig,
@@ -18,12 +19,6 @@ import type {
   hotProgressOptions,
 } from "../types";
 import type { IpcMainInvokeEvent, WebContents } from "electron";
-
-const DANMUKUFACTORY_PATH = join(__dirname, "../../resources/bin/DanmakuFactory.exe").replace(
-  "app.asar",
-  "app.asar.unpacked",
-);
-log.info(`DANMUKUFACTORY_PATH: ${DANMUKUFACTORY_PATH}`);
 
 export const DANMU_DEAFULT_CONFIG: DanmuConfig = {
   resolution: [1920, 1080],

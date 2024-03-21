@@ -24,7 +24,7 @@ import { handlers as ffmpegHandlers } from "./ffmpegPreset";
 import { handlers as danmuHandlers } from "./danmu";
 import { handlers as configHandlers } from "./config";
 import { handlers as notidyHandlers } from "./notify";
-import { CONFIG_PATH } from "./utils/config";
+import { CONFIG_PATH } from "./appConstant";
 import icon from "../../resources/icon.png?asset";
 
 import type { OpenDialogOptions } from "../types";
