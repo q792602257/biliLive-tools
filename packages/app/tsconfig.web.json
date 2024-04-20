@@ -6,7 +6,8 @@
     "src/renderer/src/**/*",
     "src/renderer/src/**/*.vue",
     "src/preload/*.d.ts",
-    "src/types/*"
+    "src/types/*",
+    "node_modules/@biliLive-tools/**/*"
   ],
   "compilerOptions": {
     "composite": true,

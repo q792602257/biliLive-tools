@@ -22,7 +22,7 @@ import { handlers as taskHandlers, taskQueue } from "./task";
 import { handlers as biliupHandlers } from "./biliup";
 import { handlers as ffmpegHandlers } from "./ffmpegPreset";
 import { handlers as danmuHandlers } from "./danmu";
-import { handlers as configHandlers } from "./config";
+import { configHandlers } from "./handlers";
 import { handlers as notidyHandlers } from "./notify";
 import icon from "../../resources/icon.png?asset";
 import { appConfig } from "biliLive-tools@shared";
@@ -402,6 +402,8 @@ const appInit = async () => {
   // 默认十分钟运行一次
   commentQueue.run(1000 * 60 * 10);
   const webhook = appConfig.get("webhook");
+  log.transports.file.level = appConfig.get("logLevel");
+
   if (webhook?.open) {
     // 新建监听
     server = serverApp.listen(webhook.port, () => {
